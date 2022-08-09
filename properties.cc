@@ -87,12 +87,9 @@ static void forma(struct grup_data *Prop)
 
   for(i=0;i<3;i++)
   {
-    for(j=0;j<3;j++)
-    {
-      Prop->evec[i][0] = (TYPE_REAL)gsl_matrix_get(evec,0,j);
-      Prop->evec[i][1] = (TYPE_REAL)gsl_matrix_get(evec,1,j);
-      Prop->evec[i][2] = (TYPE_REAL)gsl_matrix_get(evec,2,j);
-    }
+    Prop->evec[2-i][0] = (TYPE_REAL)gsl_matrix_get(evec,0,i);
+    Prop->evec[2-i][1] = (TYPE_REAL)gsl_matrix_get(evec,1,i);
+    Prop->evec[2-i][2] = (TYPE_REAL)gsl_matrix_get(evec,2,i);
   }
 
 #ifdef STORE_VELOCITIES  
@@ -111,12 +108,9 @@ static void forma(struct grup_data *Prop)
 
   for(i=0;i<3;i++)
   {
-    for(j=0;j<3;j++)
-    {
-      Prop->evec[i][0] = (TYPE_REAL)gsl_matrix_get(evec,0,j);
-      Prop->evec[i][1] = (TYPE_REAL)gsl_matrix_get(evec,1,j);
-      Prop->evec[i][2] = (TYPE_REAL)gsl_matrix_get(evec,2,j);
-    }
+    Prop->evec_vel[2-i][0] = (TYPE_REAL)gsl_matrix_get(evec,0,i);
+    Prop->evec_vel[2-i][1] = (TYPE_REAL)gsl_matrix_get(evec,1,i);
+    Prop->evec_vel[2-i][2] = (TYPE_REAL)gsl_matrix_get(evec,2,i);
   }
 #endif
 
