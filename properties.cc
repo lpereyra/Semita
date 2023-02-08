@@ -262,9 +262,9 @@ extern void properties(struct grup_data *Prop)
 		for(dim = 0; dim < 3; dim++)
 		{
 #ifdef COMPUTE_EP
-			dx[dim] = Prop->pos[3*iepmin+dim] - Prop->pos[3*i+dim];
-#else
-      dx[dim] = Prop->pcm[dim]          - Prop->pos[3*i+dim];
+			dx[dim] = Prop->pos[3*i+dim] - Prop->pos[3*iepmin+dim];
+#else                                
+      dx[dim] = Prop->pos[3*i+dim] - Prop->pcm[dim]         ;
 #endif
 			dv[dim] = Prop->vel[3*i + dim] - Prop->vcm[dim];
       Prop->sig[dim] += Prop->vel[3*i + dim] * Prop->vel[3*i + dim];
